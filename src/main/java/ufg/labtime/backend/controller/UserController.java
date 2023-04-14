@@ -1,7 +1,5 @@
 package ufg.labtime.backend.controller;
 
-import com.opencsv.CSVParser;
-import com.opencsv.bean.CsvToBeanBuilder;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +10,6 @@ import ufg.labtime.backend.entity.Usuario;
 import ufg.labtime.backend.repository.UserRepository;
 import ufg.labtime.backend.utils.CSVUtils;
 
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 
@@ -22,7 +19,8 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    private final String UPDATE = "Base de dados atualizada";
+    private final String UPDATE_SUCESS = "Base de dados atualizada";
+    private final String UPDATE_ERROR = "Erro ao atualizar base de dados";
 
     @RequestMapping(value = "/usuarios", method = RequestMethod.GET)
     public List<Usuario> Get() {
@@ -30,9 +28,13 @@ public class UserController {
     }
 
     @GetMapping("usuarios/update")
-    public String updateDatabase(HttpServletResponse response) throws IOException {
+    public String updateDatabase(HttpServletResponse response) {
         List<Usuario> usuarios = CSVUtils.parse();
-        userRepository.saveAll(usuarios);
-        return UPDATE;
+
+        if (usuarios != null) {
+            userRepository.saveAll(usuarios);
+            return UPDATE_SUCESS;
+        }
+        return UPDATE_ERROR;
     }
 }
