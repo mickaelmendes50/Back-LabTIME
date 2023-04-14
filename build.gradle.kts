@@ -27,6 +27,9 @@ dependencies {
 	runtimeOnly("org.postgresql:postgresql")
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	// https://mvnrepository.com/artifact/com.opencsv/opencsv
+	implementation("com.opencsv:opencsv:5.7.1")
 }
 
 tasks.withType<Test> {
