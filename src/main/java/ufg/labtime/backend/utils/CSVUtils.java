@@ -37,7 +37,6 @@ public class CSVUtils {
                 user.setDataDeVinculo(data[10]);
                 return user;
             }).toList();
-            usuarios.forEach(System.out::println);
             return usuarios;
         } catch (IOException | CsvException e) {
             e.printStackTrace();
