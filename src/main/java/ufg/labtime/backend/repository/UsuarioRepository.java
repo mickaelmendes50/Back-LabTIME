@@ -7,7 +7,7 @@ import ufg.labtime.backend.entity.Usuario;
 import java.util.List;
 
 @Repository
-public interface UserRepository extends JpaRepository<Usuario, Long> {
+public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
     List<Usuario> findByFullNameContaining(String fullName);
 
