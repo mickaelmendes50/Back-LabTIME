@@ -23,7 +23,7 @@ public class CSVUtils {
                 user.setNomeSocial(data[1]);
                 if (!data[2].equals(""))
                     user.setDataDeNascimento(data[2]);
-                user.setCodigo(data[3]);
+                user.setCodigo(Integer.parseInt(data[3]));
                 if (!data[4].equals(""))
                     user.setSexo(data[4]);
                 user.setEmail(data[5]);
@@ -31,7 +31,7 @@ public class CSVUtils {
                     user.setEstado(data[6]);
                 if (!data[7].equals(""))
                     user.setMunicipio(data[7]);
-                user.setNumeroDeAcessos(data[8]);
+                user.setNumeroDeAcessos(Integer.parseInt(data[8]));
                 if (!data[9].equals(""))
                     user.setSituacao(data[9]);
                 user.setDataDeVinculo(data[10]);

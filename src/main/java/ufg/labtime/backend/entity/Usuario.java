@@ -29,7 +29,7 @@ public class Usuario {
     @Id
     @Getter
     @Setter
-    private String codigo;
+    private int codigo;
 
     @Column(nullable = true)
     @Getter
@@ -56,7 +56,7 @@ public class Usuario {
     @NotNull(message = "É necessário informar o numero de acesso")
     @Getter
     @Setter
-    private String numeroDeAcessos;
+    private int numeroDeAcessos;
 
     @Column(nullable = true)
     @Getter
