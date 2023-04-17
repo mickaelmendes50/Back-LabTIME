@@ -12,7 +12,7 @@ import java.util.List;
 public class CSVUtils {
 
     public static List<Usuario> parse(){
-        final String CSV_PATH = "C:\\GitHub\\backend\\src\\main\\assets\\usuarios.csv";
+        final String CSV_PATH = System.getProperty("user.dir") + "\\src\\main\\assets\\usuarios.csv";
         try{
             CSVReader reader = new CSVReaderBuilder(new FileReader(CSV_PATH)).
                     withSkipLines(1). // Skiping firstline as it is header
