@@ -9,32 +9,32 @@ import lombok.Setter;
 @Entity
 public class Usuario {
 
-    @Id
-    @Getter
-    @Setter
-    private String code;
-
     @Column(nullable = false)
     @NotEmpty(message = "É necessário informar o nome completo")
     @Getter
     @Setter
-    private String fullName;
+    private String nomeCompleto;
 
     @Column(nullable = false)
     @NotEmpty(message = "É necessário informar o nome social")
     @Getter
     @Setter
-    private String socialName;
+    private String nomeSocial;
 
     @Column(nullable = true)
     @Getter
     @Setter
-    private String birthDate;
+    private String dataDeNascimento;
+
+    @Id
+    @Getter
+    @Setter
+    private String codigo;
 
     @Column(nullable = true)
     @Getter
     @Setter
-    private String sex;
+    private String sexo;
 
     @Column(nullable = false)
     @NotEmpty(message = "É necessário informar o email")
@@ -45,27 +45,27 @@ public class Usuario {
     @Column(nullable = true)
     @Getter
     @Setter
-    private String state;
+    private String estado;
 
     @Column(nullable = true)
     @Getter
     @Setter
-    private String city;
-
-    @Column(nullable = true)
-    @Getter
-    @Setter
-    private String situation;
-
-    @Column(nullable = false)
-    @NotEmpty(message = "É necessário informar a data de vinculo")
-    @Getter
-    @Setter
-    private String bondDate;
+    private String municipio;
 
     @Column(nullable = false)
     @NotNull(message = "É necessário informar o numero de acesso")
     @Getter
     @Setter
-    private String accessNumber;
+    private String numeroDeAcessos;
+
+    @Column(nullable = true)
+    @Getter
+    @Setter
+    private String situacao;
+
+    @Column(nullable = false)
+    @NotEmpty(message = "É necessário informar a data de vinculo")
+    @Getter
+    @Setter
+    private String dataDeVinculo;
 }

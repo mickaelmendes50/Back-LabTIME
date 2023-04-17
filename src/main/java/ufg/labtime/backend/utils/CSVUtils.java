@@ -19,22 +19,22 @@ public class CSVUtils {
                             build();
             List<Usuario> usuarios = reader.readAll().stream().map(data -> {
                 Usuario user = new Usuario();
-                user.setFullName(data[0]);
-                user.setSocialName(data[1]);
+                user.setNomeCompleto(data[0]);
+                user.setNomeSocial(data[1]);
                 if (!data[2].equals(""))
-                    user.setBirthDate(data[2]);
-                user.setCode(data[3]);
+                    user.setDataDeNascimento(data[2]);
+                user.setCodigo(data[3]);
                 if (!data[4].equals(""))
-                    user.setSex(data[4]);
+                    user.setSexo(data[4]);
                 user.setEmail(data[5]);
                 if (!data[6].equals(""))
-                    user.setState(data[6]);
+                    user.setEstado(data[6]);
                 if (!data[7].equals(""))
-                    user.setCity(data[7]);
-                user.setAccessNumber(data[8]);
+                    user.setMunicipio(data[7]);
+                user.setNumeroDeAcessos(data[8]);
                 if (!data[9].equals(""))
-                    user.setSituation(data[9]);
-                user.setBondDate(data[10]);
+                    user.setSituacao(data[9]);
+                user.setDataDeVinculo(data[10]);
                 return user;
             }).toList();
             usuarios.forEach(System.out::println);

@@ -23,10 +23,10 @@ public class UsuarioController {
     @RequestMapping(value = "/usuarios", method = RequestMethod.GET)
     public List<Usuario> Get(@RequestParam Map<String, String> queryParameters) {
         if (MapUtils.isNotEmpty(queryParameters)) {
-            if (!usuarioRepository.findByFullNameContaining(queryParameters.get("filtro")).isEmpty())
-                return usuarioRepository.findByFullNameContaining(queryParameters.get("filtro"));
-            if (!usuarioRepository.findBySocialNameContaining(queryParameters.get("filtro")).isEmpty())
-                return usuarioRepository.findBySocialNameContaining(queryParameters.get("filtro"));
+            if (!usuarioRepository.findByNomeCompletoContaining(queryParameters.get("filtro")).isEmpty())
+                return usuarioRepository.findByNomeCompletoContaining(queryParameters.get("filtro"));
+            if (!usuarioRepository.findByNomeSocialContaining(queryParameters.get("filtro")).isEmpty())
+                return usuarioRepository.findByNomeSocialContaining(queryParameters.get("filtro"));
             if (!usuarioRepository.findByEmailContaining(queryParameters.get("filtro")).isEmpty())
                 return usuarioRepository.findByEmailContaining(queryParameters.get("filtro"));
         }

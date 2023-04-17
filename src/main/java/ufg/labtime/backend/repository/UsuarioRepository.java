@@ -9,9 +9,9 @@ import java.util.List;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-    List<Usuario> findByFullNameContaining(String fullName);
+    List<Usuario> findByNomeCompletoContaining(String fullName);
 
-    List<Usuario> findBySocialNameContaining(String socialName);
+    List<Usuario> findByNomeSocialContaining(String socialName);
 
     List<Usuario> findByEmailContaining(String email);
 }
