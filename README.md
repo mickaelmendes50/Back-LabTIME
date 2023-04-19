@@ -8,6 +8,16 @@ Modelar a tabela fornecida em CSV pela equipe em uma base de dados Postgres e de
 ### Ferramentas
 <img alt="Git" src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white"/> <img alt="GitHub" src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"/> <img alt="PostgreSQL" src="https://img.shields.io/badge/postgresql-31648C.svg?style=for-the-badge&logo=postgresql&logoColor=white"/> <img alt="Postman" src="https://img.shields.io/badge/postman-F76936.svg?style=for-the-badge&logo=postman&logoColor=white"/>
 
+## Executar
+
+Faça um clone do repositório através do comando:
+
+```
+https://github.com/mickaelmendes50/Back-LabTIME.git
+```
+
+Então o abra com a [IntelliJ IDEA](https://www.jetbrains.com/pt-br/idea/) e o execute
+
 ## Utilização
 O endpoint está disponível no localhost pela URL: 
 
