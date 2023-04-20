@@ -1,7 +1,11 @@
 package ufg.labtime.backend;
 
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.info.License;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class BackendApplication {
@@ -10,4 +14,15 @@ public class BackendApplication {
 		SpringApplication.run(BackendApplication.class, args);
 	}
 
+	@Bean
+	public OpenAPI customOpenAPI() {
+		return new OpenAPI().info(new Info()
+				.title("Usuários API")
+				.version("1.0")
+				.description("Essa é uma API criada a fim de aprendizado - " +
+						"foi utilizado o OpenAPI 3 com Spring Boot.")
+				.termsOfService("http://swagger.io/terms/")
+				.license(new License().name("Apache 2.0")
+						.url("http://springdoc.org")));
+	}
 }
