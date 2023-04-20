@@ -1,5 +1,7 @@
 package ufg.labtime.backend.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.collections.MapUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping({"/usuarios"})
+@Tag(name = "usuarios", description = "API para manipulação da tabela de usuários")
 public class UsuarioController {
 
     @Autowired
@@ -22,6 +25,7 @@ public class UsuarioController {
     private final String UPDATE_SUCESS = "Base de dados atualizada";
     private final String UPDATE_ERROR = "Erro ao atualizar base de dados";
 
+    @Operation(summary = "Lista todos os usuários")
     @GetMapping
     public List<Usuario> Get(@RequestParam Map<String, String> queryParameters) {
         if (MapUtils.isNotEmpty(queryParameters)) {
@@ -35,6 +39,7 @@ public class UsuarioController {
         return usuarioRepository.findAll();
     }
 
+    @Operation(summary = "Atualiza a base de dados lendo o arquivo csv")
     @GetMapping("/update")
     public String updateDatabase(HttpServletResponse response) {
         List<Usuario> usuarios = CSVUtils.parse();
@@ -46,6 +51,7 @@ public class UsuarioController {
         return UPDATE_ERROR;
     }
 
+    @Operation(summary = "Obter o usuário através do id")
     @GetMapping(path = {"/{id}"})
     public ResponseEntity findById(@PathVariable long id){
         return usuarioRepository.findById(id)
@@ -53,11 +59,13 @@ public class UsuarioController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @Operation(summary = "Adicionar usuário")
     @PostMapping
     public Usuario create(@RequestBody Usuario user){
         return usuarioRepository.save(user);
     }
 
+    @Operation(summary = "Atualizar informaçoes usuário")
     @PutMapping(value="/{id}")
     public ResponseEntity update(@PathVariable("id") long id,
                                  @RequestBody Usuario user) {
@@ -79,6 +87,7 @@ public class UsuarioController {
                 }).orElse(ResponseEntity.notFound().build());
     }
 
+    @Operation(summary = "Deletar usuário")
     @DeleteMapping(path ={"/{id}"})
     public ResponseEntity <?> delete(@PathVariable long id) {
         return usuarioRepository.findById(id)
