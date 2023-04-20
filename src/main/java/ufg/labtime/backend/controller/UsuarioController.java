@@ -57,4 +57,25 @@ public class UsuarioController {
     public Usuario create(@RequestBody Usuario user){
         return usuarioRepository.save(user);
     }
+
+    @PutMapping(value="/{id}")
+    public ResponseEntity update(@PathVariable("id") long id,
+                                 @RequestBody Usuario user) {
+        return usuarioRepository.findById(id)
+                .map(record -> {
+                    record.setNomeCompleto(user.getNomeCompleto());
+                    record.setNomeSocial(user.getNomeSocial());
+                    record.setDataDeNascimento(user.getDataDeNascimento());
+                    record.setCodigo(user.getCodigo());
+                    record.setSexo(user.getSexo());
+                    record.setEmail(user.getEmail());
+                    record.setEstado(user.getEstado());
+                    record.setMunicipio(user.getMunicipio());
+                    record.setNumeroDeAcessos(user.getNumeroDeAcessos());
+                    record.setSituacao(user.getSituacao());
+                    record.setDataDeVinculo(user.getDataDeVinculo());
+                    Usuario updated = usuarioRepository.save(record);
+                    return ResponseEntity.ok().body(updated);
+                }).orElse(ResponseEntity.notFound().build());
+    }
 }
