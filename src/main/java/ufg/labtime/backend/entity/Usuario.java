@@ -17,30 +17,30 @@ public class Usuario {
     @NotEmpty(message = "É necessário informar o nome social")
     private String nomeSocial;
 
-    @Column(nullable = true)
+    @Column()
     private String dataDeNascimento;
 
     @Id
     private int codigo;
 
-    @Column(nullable = true)
+    @Column()
     private String sexo;
 
     @Column(nullable = false)
     @NotEmpty(message = "É necessário informar o email")
     private String email;
 
-    @Column(nullable = true)
+    @Column()
     private String estado;
 
-    @Column(nullable = true)
+    @Column()
     private String municipio;
 
     @Column(nullable = false)
     @NotNull(message = "É necessário informar o numero de acesso")
     private int numeroDeAcessos;
 
-    @Column(nullable = true)
+    @Column()
     private String situacao;
 
     @Column(nullable = false)
