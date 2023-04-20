@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@RequestMapping({"/usuarios"})
 public class UsuarioController {
 
     @Autowired
@@ -20,7 +21,7 @@ public class UsuarioController {
     private final String UPDATE_SUCESS = "Base de dados atualizada";
     private final String UPDATE_ERROR = "Erro ao atualizar base de dados";
 
-    @RequestMapping(value = "/usuarios", method = RequestMethod.GET)
+    @GetMapping
     public List<Usuario> Get(@RequestParam Map<String, String> queryParameters) {
         if (MapUtils.isNotEmpty(queryParameters)) {
             if (!usuarioRepository.findByNomeCompletoContaining(queryParameters.get("filtro")).isEmpty())
@@ -33,7 +34,7 @@ public class UsuarioController {
         return usuarioRepository.findAll();
     }
 
-    @GetMapping("usuarios/update")
+    @GetMapping("/update")
     public String updateDatabase(HttpServletResponse response) {
         List<Usuario> usuarios = CSVUtils.parse();
 
