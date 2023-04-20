@@ -52,4 +52,9 @@ public class UsuarioController {
                 .map(record -> ResponseEntity.ok().body(record))
                 .orElse(ResponseEntity.notFound().build());
     }
+
+    @PostMapping
+    public Usuario create(@RequestBody Usuario user){
+        return usuarioRepository.save(user);
+    }
 }
