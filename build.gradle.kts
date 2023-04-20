@@ -30,6 +30,9 @@ dependencies {
 
 	// https://mvnrepository.com/artifact/com.opencsv/opencsv
 	implementation("com.opencsv:opencsv:5.7.1")
+
+	// https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-data-rest
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0")
 }
 
 tasks.withType<Test> {
