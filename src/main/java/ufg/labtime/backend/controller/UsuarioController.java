@@ -78,4 +78,13 @@ public class UsuarioController {
                     return ResponseEntity.ok().body(updated);
                 }).orElse(ResponseEntity.notFound().build());
     }
+
+    @DeleteMapping(path ={"/{id}"})
+    public ResponseEntity <?> delete(@PathVariable long id) {
+        return usuarioRepository.findById(id)
+                .map(record -> {
+                    usuarioRepository.deleteById(id);
+                    return ResponseEntity.ok().build();
+                }).orElse(ResponseEntity.notFound().build());
+    }
 }
