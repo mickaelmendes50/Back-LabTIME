@@ -3,6 +3,7 @@ package ufg.labtime.backend.controller;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.collections.MapUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ufg.labtime.backend.entity.Usuario;
 import ufg.labtime.backend.repository.UsuarioRepository;
@@ -43,5 +44,12 @@ public class UsuarioController {
             return UPDATE_SUCESS;
         }
         return UPDATE_ERROR;
+    }
+
+    @GetMapping(path = {"/{id}"})
+    public ResponseEntity findById(@PathVariable long id){
+        return usuarioRepository.findById(id)
+                .map(record -> ResponseEntity.ok().body(record))
+                .orElse(ResponseEntity.notFound().build());
     }
 }
