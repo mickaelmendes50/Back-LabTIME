@@ -34,3 +34,14 @@ route.get('/usuarios', async (req: Request, res: Response) => {
     const users = await client.user.findMany()
     res.json(users)
 })
+
+route.post('/usuarios', (req: Request, res: Response) => {
+    res.send("salvo")
+    return async () => {
+        return client.user.create({
+            data: {
+                ...req.body
+            }
+        });
+    }
+})

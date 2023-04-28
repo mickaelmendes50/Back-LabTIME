@@ -30,7 +30,7 @@ export function parseCsv(): User[] {
             if (context.column === 'codigo' || context.column === 'numeroDeAcessos')
                 return parseInt(columnValue, 10)
             return columnValue
-        }
+        },
     }, function (error, result: User[]) {
         if (error) {
             console.error(error);
