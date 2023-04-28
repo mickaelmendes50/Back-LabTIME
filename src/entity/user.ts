@@ -1,13 +1,13 @@
 export type User = {
     codigo: number
-    nomeCompleto: String
-    nomeSocial: String
-    dataDeNascimento: String
-    sexo: String
-    email: String
-    estado: String
-    municipio: String
+    nomeCompleto: string
+    nomeSocial: string
+    dataDeNascimento: string
+    sexo: string
+    email: string
+    estado: string
+    municipio: string
     numeroDeAcessos: number
-    situacao: String
-    dataDeVinculo: String
+    situacao: string
+    dataDeVinculo: string
 }
