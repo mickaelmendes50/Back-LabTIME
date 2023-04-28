@@ -29,3 +29,8 @@ route.get('/usuarios/update', (req: Request, res: Response) => {
     })
     res.send('Banco de dados atualizado!')
 })
+
+route.get('/usuarios', async (req: Request, res: Response) => {
+    const users = await client.user.findMany()
+    res.json(users)
+})
